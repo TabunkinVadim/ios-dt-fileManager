@@ -37,7 +37,31 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addExistingImages()
         layout()
+    }
+
+    private func addExistingImages () {
+        guard let documentsUrl = self.documentsUrl else {return}
+        do {
+            let contents = try manager.contentsOfDirectory(atPath: documentsUrl.path)
+            for file in contents{
+                let name = file
+
+                let url = documentsUrl.appendingPathComponent(file)
+
+                let data = try? Data(contentsOf: url)
+                guard let data = data else {continue}
+
+                let image = UIImage(data: data)
+                guard let image = image else {continue}
+                images.insert(ImageModel(name: name, url: url, image: image), at: 0)
+            }
+
+        } catch let error {
+            print(error)
+        }
+        tableView.reloadData()
     }
 
     @objc func addPhoto() {
