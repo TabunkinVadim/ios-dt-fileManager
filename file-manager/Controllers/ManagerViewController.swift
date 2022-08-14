@@ -7,11 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ManagerViewController: UIViewController {
 
     private var images: [ImageModel] = []
     private let manager = FileManager.default
     private var documentsUrl : URL?
+    private var isSort = true
 
     private lazy var tableView: UITableView = {
         $0.toAutoLayout()
@@ -37,8 +38,34 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(sortBySize), name: Notification.Name.sortBySize, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(sortByName), name: Notification.Name.sortByName, object: nil)
         addExistingImages()
+        sortedOnStart()
         layout()
+    }
+
+    func sortedOnStart () {
+        if UserDefaults.standard.bool(forKey: "sorted") == true {
+            sortByName()
+        } else {
+            sortBySize()
+        }
+    }
+
+    @objc func sortBySize() {
+        self.images = images.sorted(by: {$0.size < $1.size})
+        tableView.reloadData()
+    }
+
+    @objc func sortByName() {
+        self.images = images.sorted(by: {$0.name < $1.name})
+        tableView.reloadData()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
 
     private func addExistingImages () {
@@ -55,7 +82,10 @@ class ViewController: UIViewController {
 
                 let image = UIImage(data: data)
                 guard let image = image else {continue}
-                images.insert(ImageModel(name: name, url: url, image: image), at: 0)
+
+                let attributes = try manager.attributesOfItem(atPath: url.path)
+                let size = attributes[.size] as! Int
+                images.insert(ImageModel(name: name, url: url, image: image, size: size), at: 0)
             }
 
         } catch let error {
@@ -73,11 +103,9 @@ class ViewController: UIViewController {
     }
 
     private func layout () {
-        title = "Documents"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addPhoto))
-        view.backgroundColor = .white
-        
         view.addSubview(tableView)
+
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -87,7 +115,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension ManagerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         images.count
     }
@@ -100,7 +128,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension ManagerViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
         let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") {[weak self] _ , _, _ in
@@ -119,7 +147,7 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
-extension ViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension ManagerViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             let imageData = image.jpegData(compressionQuality: 1.0)
@@ -130,11 +158,16 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
                     nameNewImage = "\(nameNewImage).1"
                 }
             }
+
             let imagePath: URL = documentsUrl.appendingPathComponent(nameNewImage)
-            images.append(ImageModel(name: nameNewImage, url: imagePath, image: image))
             manager.createFile(atPath: imagePath.path, contents: imageData)
+            let attributes = try! manager.attributesOfItem(atPath: imagePath.path)
+            let size = attributes[.size] as! Int
+            images.append(ImageModel(name: nameNewImage, url: imagePath, image: image, size: size))
+            sortedOnStart()
             tableView.reloadData()
         }
         dismiss(animated: true, completion: nil)
     }
 }
+

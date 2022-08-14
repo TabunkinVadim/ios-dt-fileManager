@@ -8,24 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		6E06D0C3289BB4CB001B6600 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E06D0C2289BB4CB001B6600 /* AppDelegate.swift */; };
-		6E06D0C7289BB4CB001B6600 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E06D0C6289BB4CB001B6600 /* ViewController.swift */; };
+		6E06D0C7289BB4CB001B6600 /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E06D0C6289BB4CB001B6600 /* ManagerViewController.swift */; };
 		6E06D0CC289BB4D0001B6600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E06D0CB289BB4D0001B6600 /* Assets.xcassets */; };
 		6E06D0CF289BB4D0001B6600 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E06D0CD289BB4D0001B6600 /* LaunchScreen.storyboard */; };
 		6E06D0D7289BF14C001B6600 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E06D0D6289BF14C001B6600 /* ImageModel.swift */; };
 		6E06D0D9289BF55C001B6600 /* ManagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E06D0D8289BF55C001B6600 /* ManagerCell.swift */; };
 		6E06D0DB289C1C70001B6600 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E06D0DA289C1C70001B6600 /* ExtensionUIView.swift */; };
+		6E06D0E2289DA207001B6600 /* PasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E06D0E1289DA207001B6600 /* PasswordController.swift */; };
+		6E06D0E428A18D41001B6600 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E06D0E328A18D41001B6600 /* Checker.swift */; };
+		6E06D0E628A1AD15001B6600 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E06D0E528A1AD15001B6600 /* MainTabBarController.swift */; };
+		6E06D0E828A2E229001B6600 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E06D0E728A2E229001B6600 /* SettingsController.swift */; };
+		6E723EC428A43E690030DFF9 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E723EC328A43E690030DFF9 /* SettingsCell.swift */; };
+		6E723EC828A453A60030DFF9 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E723EC728A453A60030DFF9 /* NotificationName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6E06D0BF289BB4CB001B6600 /* file-manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "file-manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E06D0C2289BB4CB001B6600 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6E06D0C6289BB4CB001B6600 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6E06D0C6289BB4CB001B6600 /* ManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
 		6E06D0CB289BB4D0001B6600 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E06D0CE289BB4D0001B6600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E06D0D0289BB4D0001B6600 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E06D0D6289BF14C001B6600 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		6E06D0D8289BF55C001B6600 /* ManagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerCell.swift; sourceTree = "<group>"; };
 		6E06D0DA289C1C70001B6600 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
+		6E06D0E1289DA207001B6600 /* PasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordController.swift; sourceTree = "<group>"; };
+		6E06D0E328A18D41001B6600 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
+		6E06D0E528A1AD15001B6600 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		6E06D0E728A2E229001B6600 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		6E723EC328A43E690030DFF9 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		6E723EC728A453A60030DFF9 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +70,62 @@
 		6E06D0C1289BB4CB001B6600 /* file-manager */ = {
 			isa = PBXGroup;
 			children = (
-				6E06D0C2289BB4CB001B6600 /* AppDelegate.swift */,
-				6E06D0C6289BB4CB001B6600 /* ViewController.swift */,
-				6E06D0D6289BF14C001B6600 /* ImageModel.swift */,
-				6E06D0D8289BF55C001B6600 /* ManagerCell.swift */,
-				6E06D0DA289C1C70001B6600 /* ExtensionUIView.swift */,
-				6E06D0CB289BB4D0001B6600 /* Assets.xcassets */,
-				6E06D0CD289BB4D0001B6600 /* LaunchScreen.storyboard */,
-				6E06D0D0289BB4D0001B6600 /* Info.plist */,
+				6E06D0E0289DA172001B6600 /* TableCells */,
+				6E06D0DF289DA0AF001B6600 /* Models */,
+				6E06D0DD289DA090001B6600 /* Controllers */,
+				6E06D0DC289DA05F001B6600 /* Application */,
+				6E06D0DE289DA09E001B6600 /* Resourses */,
 			);
 			path = "file-manager";
+			sourceTree = "<group>";
+		};
+		6E06D0DC289DA05F001B6600 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6E06D0C2289BB4CB001B6600 /* AppDelegate.swift */,
+				6E06D0CD289BB4D0001B6600 /* LaunchScreen.storyboard */,
+				6E06D0DA289C1C70001B6600 /* ExtensionUIView.swift */,
+				6E723EC728A453A60030DFF9 /* NotificationName.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		6E06D0DD289DA090001B6600 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6E06D0E1289DA207001B6600 /* PasswordController.swift */,
+				6E06D0E528A1AD15001B6600 /* MainTabBarController.swift */,
+				6E06D0C6289BB4CB001B6600 /* ManagerViewController.swift */,
+				6E06D0E728A2E229001B6600 /* SettingsController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6E06D0DE289DA09E001B6600 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				6E06D0CB289BB4D0001B6600 /* Assets.xcassets */,
+				6E06D0D0289BB4D0001B6600 /* Info.plist */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		6E06D0DF289DA0AF001B6600 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6E06D0D6289BF14C001B6600 /* ImageModel.swift */,
+				6E06D0E328A18D41001B6600 /* Checker.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6E06D0E0289DA172001B6600 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				6E06D0D8289BF55C001B6600 /* ManagerCell.swift */,
+				6E723EC328A43E690030DFF9 /* SettingsCell.swift */,
+			);
+			path = TableCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,10 +198,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E06D0C7289BB4CB001B6600 /* ViewController.swift in Sources */,
+				6E06D0E828A2E229001B6600 /* SettingsController.swift in Sources */,
+				6E06D0C7289BB4CB001B6600 /* ManagerViewController.swift in Sources */,
 				6E06D0D7289BF14C001B6600 /* ImageModel.swift in Sources */,
+				6E06D0E628A1AD15001B6600 /* MainTabBarController.swift in Sources */,
+				6E723EC428A43E690030DFF9 /* SettingsCell.swift in Sources */,
+				6E06D0E2289DA207001B6600 /* PasswordController.swift in Sources */,
 				6E06D0C3289BB4CB001B6600 /* AppDelegate.swift in Sources */,
+				6E723EC828A453A60030DFF9 /* NotificationName.swift in Sources */,
 				6E06D0D9289BF55C001B6600 /* ManagerCell.swift in Sources */,
+				6E06D0E428A18D41001B6600 /* Checker.swift in Sources */,
 				6E06D0DB289C1C70001B6600 /* ExtensionUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +348,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "file-manager/Info.plist";
+				INFOPLIST_FILE = "file-manager/Resourses/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -310,7 +374,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "file-manager/Info.plist";
+				INFOPLIST_FILE = "file-manager/Resourses/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

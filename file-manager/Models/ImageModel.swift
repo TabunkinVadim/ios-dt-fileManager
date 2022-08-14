@@ -12,5 +12,6 @@ struct ImageModel {
     let name: String
     let url: URL
     let image : UIImage
+    let size : Int
 }
 
