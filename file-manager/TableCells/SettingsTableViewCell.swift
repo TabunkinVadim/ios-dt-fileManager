@@ -7,23 +7,33 @@
 
 import UIKit
 
-class SettingsCell: UITableViewCell {
+class SettingsTableViewCell: UITableViewCell {
 
-    let parametr :UILabel = {
+    private let parametr :UILabel = {
         $0.toAutoLayout()
         $0.font = UIFont(name: "SFProText-Regular", size: 17)
         $0.textColor = .black
         return $0
     } (UILabel())
 
-    let sortingSwitch: UISwitch = {
+    private let sortingSwitch: UISwitch = {
         $0.toAutoLayout()
         $0.isOn = true
         $0.addTarget(self, action: #selector(switching(sw:)), for: .valueChanged)
         return $0
     }(UISwitch())
 
-    @objc func switching(sw: UISwitch) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super .init(style: style, reuseIdentifier: reuseIdentifier)
+        switching(sw: sortingSwitch)
+        layout()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    @objc private func switching(sw: UISwitch) {
         if sw.isOn {
             UserDefaults.standard.set(true, forKey: "sorted")
             parametr.text = "Сортировка по имени"
@@ -38,16 +48,10 @@ class SettingsCell: UITableViewCell {
         }
     }
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super .init(style: style, reuseIdentifier: reuseIdentifier)
-        switching(sw: sortingSwitch)
-        layout()
+    func setupCell(text: String) {
+        parametr.text = text
     }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
+    
     private func layout () {
         contentView.addSubviews(parametr, sortingSwitch)
         NSLayoutConstraint.activate([

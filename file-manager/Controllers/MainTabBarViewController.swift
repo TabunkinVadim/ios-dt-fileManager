@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController {
+class MainTabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,7 @@ class MainTabBarController: UITabBarController {
     
     func setupTabBar() {
         let manager = createNavController(viewController: ManagerViewController(), itemName: "Documents", itemImage: "folder")
-        let settings = createNavController(viewController: SettingsController(), itemName: "Settings", itemImage: "gearshape")
+        let settings = createNavController(viewController: SettingsViewController(), itemName: "Settings", itemImage: "gearshape")
         viewControllers = [manager, settings]
     }
     

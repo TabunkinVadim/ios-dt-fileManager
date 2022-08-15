@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let navController = UINavigationController(rootViewController: PasswordController(isChange: false))
+        let navController = UINavigationController(rootViewController: PasswordViewController(isChange: false))
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()

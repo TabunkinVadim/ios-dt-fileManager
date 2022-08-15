@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PasswordController: UIViewController {
+class PasswordViewController: UIViewController {
 
     private let keychainChecker = Checker()
     private var isFirstPassword = true
@@ -73,11 +73,11 @@ class PasswordController: UIViewController {
     }
 
     private func setLogInButtom() {
-        if isChange == false {
-            if UserDefaults.standard.bool(forKey: "password") == true {
+        if !isChange {
+            if UserDefaults.standard.bool(forKey: "password") {
                 logInButtom.setTitle("Введите пароль", for: .normal)
             } else {
-                if  isFirstPassword == true {
+                if  isFirstPassword {
                     logInButtom.setTitle("Создать пароль", for: .normal)
                 }
             }
@@ -88,11 +88,11 @@ class PasswordController: UIViewController {
     }
 
     @objc private func bottomAction() {
-        if UserDefaults.standard.bool(forKey: "password") == true {
+        if UserDefaults.standard.bool(forKey: "password") {
             logInButtom.setTitle("Введите пароль", for: .normal)
             checkPassword ()
         } else {
-            if  isFirstPassword == true {
+            if  isFirstPassword {
                 logInButtom.setTitle("Создать пароль", for: .normal)
                 createNewPassword ()
             } else {
@@ -105,7 +105,7 @@ class PasswordController: UIViewController {
         let password = keychainChecker.keychainGetPassword()
         if setPassword.text! == password{
             dismiss(animated: true)
-            navigationController?.pushViewController(MainTabBarController(), animated: true)
+            navigationController?.pushViewController(MainTabBarViewController(), animated: true)
         } else {
             let alert: UIAlertController = {
                 $0.title = "Ошибка"
@@ -255,7 +255,7 @@ class PasswordController: UIViewController {
     }
 }
 
-extension PasswordController: UITextFieldDelegate{
+extension PasswordViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         return true

@@ -7,21 +7,21 @@
 
 import UIKit
 
-class ManagerCell: UITableViewCell {
+class ManagerTableViewCell: UITableViewCell {
 
-    let image: UIImageView = {
+    private  let image: UIImageView = {
         $0.toAutoLayout()
         return $0
     }(UIImageView())
 
-    let nameImage :UILabel = {
+    private  let nameImage :UILabel = {
         $0.toAutoLayout()
         $0.font = UIFont(name: "SFProText-Regular", size: 17)
         $0.textColor = .black
         return $0
     } (UILabel())
 
-    let size :UILabel = {
+    private let size :UILabel = {
         $0.toAutoLayout()
         $0.font = UIFont(name: "SFProText-Regular", size: 17)
         $0.textColor = .systemGray4

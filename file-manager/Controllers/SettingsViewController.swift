@@ -7,13 +7,13 @@
 
 import UIKit
 
-class SettingsController: UIViewController {
+class SettingsViewController: UIViewController {
 
     private lazy var tableView: UITableView = {
         $0.toAutoLayout()
         $0.dataSource = self
         $0.delegate = self
-        $0.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.identifier)
+        $0.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.identifier)
         $0.backgroundColor = .white
         return $0
     }(UITableView(frame: .zero, style: .plain))
@@ -41,7 +41,7 @@ class SettingsController: UIViewController {
     }
 }
 
-extension SettingsController : UITableViewDataSource {
+extension SettingsViewController : UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         2
@@ -49,8 +49,8 @@ extension SettingsController : UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = SettingsCell()
-            cell.parametr.text = "Сортировать по имени"
+            let cell = SettingsTableViewCell()
+            cell.setupCell(text: "Сортировать по имени")
             return cell
         } else {
             let cell = UITableViewCell()
@@ -62,10 +62,10 @@ extension SettingsController : UITableViewDataSource {
     }
 }
 
-extension SettingsController : UITableViewDelegate {
+extension SettingsViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1 {
-            let vc = PasswordController(isChange: true)
+            let vc = PasswordViewController(isChange: true)
             navigationController?.present (vc, animated: true )
         }
     }

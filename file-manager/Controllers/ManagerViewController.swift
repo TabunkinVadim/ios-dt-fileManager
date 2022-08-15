@@ -18,7 +18,7 @@ class ManagerViewController: UIViewController {
         $0.toAutoLayout()
         $0.dataSource = self
         $0.delegate = self
-        $0.register(ManagerCell.self, forCellReuseIdentifier: ManagerCell.identifier)
+        $0.register(ManagerTableViewCell.self, forCellReuseIdentifier: ManagerTableViewCell.identifier)
         $0.backgroundColor = .white
         return $0
     }(UITableView(frame: .zero, style: .plain))
@@ -121,8 +121,8 @@ extension ManagerViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: ManagerCell
-        cell = (tableView.dequeueReusableCell(withIdentifier: ManagerCell.identifier , for: indexPath) as! ManagerCell)
+        var cell: ManagerTableViewCell
+        cell = (tableView.dequeueReusableCell(withIdentifier: ManagerTableViewCell.identifier , for: indexPath) as? ManagerTableViewCell ?? ManagerTableViewCell())
         cell.setupCell(model: images[indexPath.row])
         return cell
     }
